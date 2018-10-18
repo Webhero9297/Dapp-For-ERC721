@@ -1,0 +1,1321 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="IckgWPrZI8Pn0uQ3XV0BSpR4tvgBCaPk4T3lz1O5">
+
+    <title>CryptoFantasy</title>
+
+    <!-- Styles -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="http://138.68.73.6:5007/./assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://138.68.73.6:5007/./assets/metronic/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="css/style.css">
+	
+
+    <link href="http://138.68.73.6:5007/css/app.css" rel="stylesheet">
+    <!--<link href="http://138.68.73.6:5007/css/frontend/home.css" rel="stylesheet">-->
+    <script src="http://138.68.73.6:5007/theme/bower_components/jquery/jquery.min.js"></script>
+
+    <link rel="shortcut icon" href="http://138.68.73.6:5007/./images/icon/logo.png">
+	<link  href="../fonts"/>  <style>
+	@font-face {
+    font-family: 'Montserrat-UltraLight';
+    src: url('fonts/Montserrat-UltraLight.eot');
+    src: url('fonts/Montserrat-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Montserrat-UltraLight.woff2') format('woff2'),
+        url('fonts/Montserrat-UltraLight.woff') format('woff'),
+        url('fonts/Montserrat-UltraLight.ttf') format('truetype'),
+        url('fonts/Montserrat-UltraLight.svg#Montserrat-UltraLight') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+     .label-title-trading ,.label-title-stats,.label-athlete-playername,.label-title-crypto-fantasy,.btn-action,.label-content-crypto-fantasy,.icon-main,.logo-title,header *,.navbar-nav>li>a,.btn-bottom-athlete,.a-label,.div-athlete-detail,.footer-copyright-label{
+	   font-family: inherit !important;
+	   }
+	   .navbar-brand{
+	   font-family:unset!important;
+	   }
+
+body{
+ /*font-family: inherit !important;*/
+ }
+ 
+ label {
+    margin-top: 100px;
+}
+
+
+.athlete-thumb {
+    width: 140px !important;
+    height: 140px !important;
+}
+
+
+
+.bar-graph .percent {
+    opacity: 1 !important;
+   
+    color: white !important;
+}
+    </style>
+    <script src="http://138.68.73.6:5007/./js/Blockchain.js" ></script>
+</head>
+<style>
+    @media(max-width: 767px){
+        .navbar-nav {
+            margin: 0px -15px;
+        }
+        .navbar-nav a {
+            background-color: black;
+        }
+        .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+            background: rgb(25,25,25)!important;
+        }
+        .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+            color: #333;
+            background-color: rgb(25,25,25)!important;
+        }
+        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+            background-color: transparent;
+        }
+        .dropdown-menu {
+            padding: 0px;
+            border: 1px solid #ffffff77;
+        }
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f133;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+    .black-background {
+        background: #000!important;
+    }
+	.col-md-6.bord {
+    border: 1px solid #fff;
+    width: 48%;
+    margin-right: 2%;
+    height: 180px;
+}
+.bord h5 {
+    color: #fff;
+    font-size: 25px;
+}
+.bord p {
+    font-size: 20px;
+    color: #fff;
+}
+p {
+    color: #fff;
+    font-size: 20px;
+	    margin-top: 10px;
+}
+.bar-graph {
+  padding: 0;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 425px;
+  margin: 0;
+}
+
+.bar-graph li {
+  display: block;
+  padding: 1.5625rem 0;
+  position: relative;
+  text-align: center;
+  vertical-align: bottom;
+  border-radius: 4px 4px 0 0;
+  max-width: 20%;
+  height: 100%;
+  margin: 0 1.8% 0 0;
+  -webkit-flex: 1 1 15%;
+      -ms-flex: 1 1 15%;
+          flex: 1 1 15%;
+}
+
+.bar-graph .bar-graph-axis {
+  -webkit-flex: 1 1 8%;
+      -ms-flex: 1 1 8%;
+          flex: 1 1 8%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bar-graph .bar-graph-label {
+  margin: 0;
+  background-color: none;
+  color: #8a8a8a;
+  position: relative;
+}
+.col-md-12.team {
+    margin-bottom: 25px;
+}
+
+.team .col-md-9 {
+    margin-left: 1%;
+    width: 74%;
+    margin-top: 2%;
+}
+@media print, screen and (min-width: 40em) {
+  .bar-graph .bar-graph-label:before, .bar-graph .bar-graph-label:after {
+    content: "";
+    position: absolute;
+    border-bottom: 1px dashed #8a8a8a;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 20%;
+  }
+}
+
+@media print, screen and (min-width: 40em) and (min-width: 64em) {
+  .bar-graph .bar-graph-label:before, .bar-graph .bar-graph-label:after {
+    width: 30%;
+  }
+}
+
+@media print, screen and (min-width: 40em) {
+  .bar-graph .bar-graph-label:after {
+    left: auto;
+    right: 0;
+  }
+}
+
+.bar-graph .percent {
+  letter-spacing: -3px;
+  opacity: 0.4;
+  width: 100%;
+  font-size: 1.875rem;
+  position: absolute;
+}
+
+@media print, screen and (min-width: 40em) {
+  .bar-graph .percent {
+    font-size: 3.875rem;
+  }
+}
+
+.bar-graph .percent span {
+  font-size: 1.875rem;
+}
+
+.bar-graph .description {
+  font-weight: 800;
+  opacity: 0.5;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 14px;
+  bottom: 20px;
+  position: absolute;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.bar-graph .bar.primary {
+  border: 1px solid #1779ba;
+  background: linear-gradient(#2196e3, #1779ba 70%);
+}
+
+.bar-graph .bar.secondary {
+  border: 1px solid #767676;
+  background: linear-gradient(#909090, #767676 70%);
+}
+
+.bar-graph .bar.success {
+  border: 1px solid #3adb76;
+  background: linear-gradient(#65e394, #3adb76 70%);
+}
+
+.bar-graph .bar.warning {
+  border: 1px solid #ffae00;
+  background: linear-gradient(#ffbe33, #ffae00 70%);
+}
+
+.bar-graph .bar.alert {
+  border: 1px solid #cc4b37;
+  background: linear-gradient(#d67060, #cc4b37 70%);
+}
+ul.fd {
+    list-style: none;
+    padding: 0;
+}
+li.bar-graph-label {
+    float: left;
+    width: 20%;
+    margin-right: 2.5%;
+    text-align: center;
+}.col-md-4.bord {
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 18px;
+    height: 100px;
+}
+.label-title-crypto-fantasy{
+text-align:left !important;
+}
+
+    /*************************************   Megamenu Start   ******************************************/
+
+    /*************************************   Megamenu End     ******************************************/
+</style>
+<body>
+<div id="alertModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="alertmodal_title">Modal Header</h4>
+            </div>
+            <div class="modal-body" id="alertmodal_body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="alertmodal_footer_cancel" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="app" class="app-body">
+    <nav class="navbar navbar-default navbar-laravel">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://138.68.73.6:5007">
+                    <img src="http://138.68.73.6:5007/./images/icon/logo.png" class="logo-icon" />
+                    <span class="logo-title">CRYPTO FANTASY</span>
+                    
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="dropdown_marketplace_menu">
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                                       
+                                    </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="crypto-container">
+        <div class="col-xs-12 col-md-12 crypto-celebrity-container">
+            <div class="py-4 container-fluid marketplace-container">
+                <link href="http://www.cryptofantasy.io/css/frontend/marketplace.css" rel="stylesheet">
+<link href="http://www.cryptofantasy.io/css/cryptocoins.css" rel="stylesheet">
+<link href="http://www.cryptofantasy.io/css/frontend/home.css" rel="stylesheet">
+<script src="http://www.cryptofantasy.io/./assets/particles/particles.js"></script>
+<div id="home" class="container-fluid padding0" style="margin: 0px -15px;">
+    <div class="app-home-body" style="height:700px;">
+        <canvas id="particles-js" width="100%" height="520px"></canvas>
+        <div class="row div-absolute-top">
+            <div class="col-xs-12 col-md-7 home-title" style="margin-left:-40px;">
+                <label class="white-color label-title-trading" style="margin-top:-30px;"><u>CryptoFantasy Executive Summary:</u>
+</label>
+               <p>CryptoFantasy was founded with the grand vision of creating a gold standard for digital card trading platforms, backed by advanced Blockchain technology.  Our primary offerings include: Sports, Entertainment and Comic categories. Members may join our community to create and trade digital cards freely. 
+CryptoFantasy also develops a series of sport card games allowing players to make either recreational or real wagers against one another. Filled with joy, thrill, and rewards; Card Trading & Games had been taken a whole new level.</p>
+
+                
+
+            </div>
+            <div class="col-xs-12 col-md-5 div-home-athlete-card-wrap">
+                <canvas id="myCanvas" width="700" height="700"></canvas>
+                <div class="home-athlete-card" ></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="div-top-athletes-wrap" style="padding-left:30px;margin-top:-200px;">
+        <div class="row" >
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Digital Card Creating & Trading</u></label>
+				<p class="col-xs-12">Monetize your favorite game-legally. CryptoFantasy revolutionized digital card trading: customize card and create a betting system. Decentralized Blockchain technology had enabled high degree of visibility and transparency unseen before.</p>
+            </div>
+			
+        </div>
+        
+        <div class="row">
+                            <img src="images/players.png" width=100% style="padding-right:30px;">
+                        
+    </div>
+    <div class="div-what-is-crypto-fantasy-wrap">
+        <div class="container">
+            
+            
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Creating & Trading Cards</label>
+            </div>
+        </div>
+        </div>
+        <div class="row div-what-is-crypto-fantasy-contents-wrap" >
+            <div class="col-xs-12 col-md-12 div-pl60-pr60"style="margin-top:-100px;">
+                <label class="label-content-crypto-fantasy" style="font-size:20px;">
+                    Creating a trading card is as simple:<BR><BR>
+1.  Purchase a empty customizable CF card.<BR>
+2.  Upload a avatar to generate the card of your choice.  <BR>
+3.  Start Trading and Monetize. <BR>
+
+                </label>
+            </div>
+            <div class="col-xs-12 col-md-12 div-pl60-pr60">
+            <BR><BR><BR>
+                <div class="media">
+                    <a href="" class="a-label" >
+                        <div class="media-left">
+                            <img width="80" src="images/customize_icon.png" class="media-object" >
+                        </div>
+                        <div class="media-body div-media-text">
+                            <h3 class="media-heading icon-main white-text">Card Customization</h4>
+                            <p class="white-text" >Members reserve the right to customize and change the avatar on CF cards the way they wish.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <img width="80" src="images/unique_icon.png" class="media-object" >
+                    </div>
+                    <div class="media-body div-media-text">
+                        <h4 class="media-heading icon-main white-text">Unique</h4>
+                        <p class="white-text" >Each card is unique and one of a kind.  For example, there will be only 1 Lebron James card in circulation. You may only obtain such card by making an offer price to its owner.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <img src="http://138.68.73.6:5007/./images/icon/icon-chart.png" class="media-object" >
+                    </div>
+                    <div class="media-body div-media-text">
+                        <h4 class="media-heading icon-main white-text">Monetize</h4>
+                        <p class="white-text" > In order to curb overly speculative trading, CF cards can only be bought and sold up to 200% of its PREVIOUS traded price.</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    
+    <div class="" style="background-color:#2a2d3c;">
+        <div class="container">
+            
+            
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Sports Cards Reward</label>
+            </div>
+        </div>
+        
+        
+			<div class="row"style="margin-top:20px;">
+				<div class="container">
+					<div class="col-md-6 bord">
+					<h5>ACTIVE:</h5>
+					<p>Gains from trading cards</p>
+					</div>
+					<div class="col-md-6 bord">
+					<h5>PASSIVE:</h5>
+					<p>When lines or spreads being wagered on include a specific player/team, the card owner will receive a royalty - 3% of total wagers. </p>
+					</div>
+				</div>
+								<div class="container">
+<p>Popular players/ teams are highly sought after, which will in turn generate outsized passive incomes.</p></div>
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div style="background-color:#2a2d3c;">
+        <div class="container">
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Comic Cards Reward</label>
+            </div>
+        </div>
+        
+			<div class="row" style="margin-top:20px;">
+				<div class="container">
+					<div class="col-md-6 bord">
+					<h5>ACTIVE:</h5>
+					<p>Gains from trading cards</p>
+					</div>
+					<div class="col-md-6 bord">
+					<h5>PASSIVE:</h5>
+					<p>Card owners can participate in competitive games, power up their level/status or place wagers.</p>
+					</div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div style="background-color:#2a2d3c;padding-bottom:100px;" >
+         <div class="container">
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Celebrities Cards Reward</label>
+            </div>
+        </div>
+			<div class="row" style="margin-top:20px;">
+				<div class="container">
+					<div class="col-md-6 bord">
+					<h5>ACTIVE:</h5>
+					<p>Gains from trading cards</p>
+					</div>
+					<div class="col-md-6 bord">
+					<h5>PASSIVE:</h5>
+					<p>N/A</p>
+					</div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div class="" style="padding-left:30px;padding-right:30px;">
+        <div class="">
+           
+           <div class="row" >
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Sport Card Games</u></label>
+            </div>
+			
+        </div>
+        
+        
+			<div class="row">
+				<div class="">
+				<div class="col-md-6">
+				<p>Members can host games, as well as placing bets on wide range of live sports events. Our system sets reliable betting line (or odds) while outcomes will be determined by box score like in any sports wagering. 
+</p>
+</div><div class="col-md-6">
+<img src="images/02.jpg" width="100%" /></div>
+
+<div style="padding-top:400px;">.</div>
+<div class="col-md-6"><img src="images/transaction.png" width="100%"/>
+
+					</div>
+					<div class="col-md-6">
+<p>Cutting-edge Blockchain technology disintermediates bookies and secures all bets. Never again will players worry about non-payment on a large winning. Once the bet is confirmed, all bets will be secured within blockchain under smart contract.</p>
+</div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div class="" style="padding-left:30px;padding-right:30px;">
+        
+        <div class="">
+           
+           <div class="row" >
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Comic Card Games</u></label>
+            </div>
+			
+        </div>
+        
+        
+			<div class="row" style="padding-bottom:100px;">
+				<div class="">
+				<div class="col-md-6">
+				<p> 
+Members who hold Comic Cards can take on competitive games designed by CrytoFantasy. <BR><BR>
+Pay an initial entry fees to develop, level up your unique character while unlocking the hottest magic
+ cards along the way- Winner takes all! <BR><BR>The most engaging, addicting, exhilarating CrytoFantasy journey is just one click away. 
+</p></div>
+					<div class="col-md-6" style="text-align:center;"><img height="300" src="images/pokemon.png"/><img height="300" src="images/ironman.png"/></div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+		<div class="" 
+
+	<div style="background-color:#2a2d3c;padding-left:30px;padding-right:30px;">
+        <div class="row" >
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Industry At a Glimpse</u></label>
+            </div>
+			
+        </div>
+                <div class="container">
+
+                        <label class="white-color label-title-trading" style="font-size: 40px;">CryptoCelebrities</label>
+</div>
+			<div class="row">
+				<div class="">
+				<div class="col-md-6">
+				<p>CryptoCelebrities is a web-based game wherein user can buy "contracts" of celebrities in exchange for ethereum. The company charges 6% of the total transactions, which resulted in revenue of USD $1 million.  In just three short months, it had reported a total trading volume of USD $18 million.  Revenue is expected to grow over 10 million annually.   
+ <BR><BR>
+CryptoFantasy's core strength goes far beyond virtual Celebrities trading and penetrates into Sports and Comic market.  One billion sports and comic fanatic that would be deeply impressed with what we have to offer. 
+</p>
+					</div>
+					<div class="col-md-6"  style="text-align:center;"><img width="400" src="https://steemitimages.com/0x0/https://res.cloudinary.com/hpiynhbhq/image/upload/v1516777454/kyjitf4f2nfwztohm3dl.png
+"></div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	<div style="background-color:#2a2d3c;">
+        <div class="">
+             <div class="container">
+
+                        <label class="white-color label-title-trading" style="font-size: 40px;">CryptoKitties</label>
+</div>
+			<div class="row">
+				<div class="">
+				<div class="col-md-6" style="text-align:center;"><img  width="400" src="https://qz.com/wp-content/uploads/2017/12/cryptokitties-ethereum-game.png?w=1141
+"></div>
+				
+				<div class="col-md-6">
+				<p>CryptoKitties is a blockchain-based virtual game developed by Axiom Zen where players purchase, collect, breed and sell wide variety of virtual cats.   
+According to http://www.kittyexplorer.com/stats/cryptoKitties generates USD $9million worth of volume per day.  At 6% transaction fee, that yields $540000 monthly revenue, roughly USD$6.5 million per year.  With clear brand positioning and broad audience reach, we projected CryptoFantsy to achieve triple the market value of CryptoKitties.
+</p>
+					</div>
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	
+	<div style="background-color:#2a2d3c;">
+        <div class="">
+
+            
+              <div class="container">
+
+                        <label class="white-color label-title-trading" style="font-size: 40px;">Global Sports Betting Market</label>
+</div>
+
+
+			<div class="row">
+				<div class="container">
+				<div class="col-md-12">
+				<p>Sports betting is a type of recreational activity that involves predicting the outcome of a sports event and placing wagers accordingly.It occupies the largest share of the USD$400 billion global gaming market at 40%. 
+ 
+CrytpoFantasy Crypto Sports Betting Projection Illustration
+
+</p>
+</div>
+<div class="col-md-12">
+<img src="" width="100%"></div>
+<div class="col-md-6">
+
+                        <label class="white-color label-title-trading" style="font-size: 30px;">Revenue Projections</label>
+
+
+<ul class="bar-graph" style="opacity:1;color:white;">
+  
+  <li class="bar warning" style="height: 95%;" title="95">
+    <div class="percent">4<span>B</span></div>
+    <div class="description">/div>
+  </li>
+  <li class="bar secondary" style="height: 49.5%;" title="90">
+    <div class="percent">400<span>M</span></div>
+    <div class="description"></div>
+  </li>
+  <li class="bar success" style="height: 20%;" title="80">
+    <div class="percent">40<span>M</span></div>
+   <div class="description"></div>
+  </li>
+  
+  </ul>
+  <ul class="fd">
+  
+    <li class="bar-graph-label">1% Market</li>
+    <li class="bar-graph-label">0.1% Market</li>
+    <li class="bar-graph-label">0.01% Market</li>
+   
+  
+</ul>
+
+					</div>
+					<div class="col-md-6">
+					
+			 <label class="white-color label-title-trading" style="font-size: 30px;">Esport Market Growth</label>
+
+<ul class="bar-graph">
+  <li></li>
+  <li class="bar primary" style="height: 25%;" title="$325 Billion">
+    <div class="percent">120B</div>
+    
+  </li>
+  <li class="bar secondary" style="height: 50%;" title="$493 Billion">
+    <div class="percent">157B</div>
+    
+  </li>
+  <li class="bar success" style="height: 75%;" title="$696 Billion">
+    <div class="percent">350B</div>
+   
+  </li>
+ 
+  </ul>
+  <ul class="fd">
+    <li class="bar-graph-label">.</li>
+
+    <li class="bar-graph-label">2015</li>
+    <li class="bar-graph-label">2016</li>
+    <li class="bar-graph-label">2017</li>
+   
+  
+</ul>
+</div>
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	
+	<div style="background-color:#2a2d3c;">
+         <div class="">
+
+            
+              <div class="container">
+
+                        <label class="white-color label-title-trading" style="font-size: 40px;">Card Trading Market</label>
+</div>
+
+
+			<div class="row">
+				<div class="">
+			<div class="col-md-6" style="padding-left:100px;">
+	
+				<p><BR><BR>According to forbes.com, sports memorabilia industry carves itself a giant slice of the $370 
+				billion worldwide collectible market with over 200 million collectors.  As the digital age arrived, CyptoFantasy pioneers digital collectible cards trading with signature blockchain and smart contract technology to secure payment transactions.</p>
+ </div>
+
+
+<div class="col-md-6">
+					
+
+<ul class="bar-graph" style="margin-top:-100px;">
+  <li></li>
+  <li class="bar primary" style="height: 25%;" title="$325 Billion">
+    <div class="percent">30M</div>
+    
+  </li>
+  <li class="bar secondary" style="height: 50%;" title="$493 Billion">
+    <div class="percent">300M</div>
+    
+  </li>
+  <li class="bar success" style="height: 75%;" title="$696 Billion">
+    <div class="percent">3B</div>
+   
+  </li>
+ 
+  </ul>
+  <ul class="fd">
+    <li class="bar-graph-label">.</li>
+
+    <li class="bar-graph-label">0.01%</li>
+    <li class="bar-graph-label">0.1%</li>
+    <li class="bar-graph-label">1%</li>
+   
+  
+</ul>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div style="background-color:#34353b;">
+        <div class="row" >
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Development Roadmap</u></label>
+            </div>
+			
+        </div>
+        
+        
+<!--<ul class="timeline">
+
+	<!-- Item 1 -->
+	<!--<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">Jan 2018 - June 2018</span>
+				
+			</div>
+			<div class="desc">Website 1.0 Development
+</div>
+		</div>
+	</li>
+  
+	<!-- Item 2 -->
+	<!--<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">June 2018</span>
+				
+			</div>
+			<div class="desc">Introduce CFC Coin for Private Sale</div>
+		</div>
+	</li>
+
+	<!-- Item 3 -->
+	<!--<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">July 2018 - Sept 2018</span>
+				
+			</div>
+			<div class="desc">Website 2.0 – Decentralized Sport Betting</div>
+		</div>
+	</li>
+	
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">Sept 2018 - Dec 2018</span>
+				
+			</div>
+			<div class="desc">Website 3.0 – Comic Card Game
+</div>
+		</div>
+	</li>
+	
+	
+  <li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">Sept 2018 - Dec 2018</span>
+				
+			</div>
+			<div class="desc">First Public ICO
+</div>
+		</div>
+	</li>
+	
+	<li>
+		<div class="direction-l">
+			<div class="flag-wrapper">
+				<span class="flag">Sept 2018 - Dec 2018</span>
+				
+			</div>
+			<div class="desc">Mobile App for Card Trading and Betting
+</div>
+		</div>
+	</li>
+	
+	<li>
+		<div class="direction-r">
+			<div class="flag-wrapper">
+				<span class="flag">Sept 2018 - Dec 2018</span>
+				
+			</div>
+			<div class="desc">Introduce Sport Information Platform
+
+</div>
+		</div>
+	</li>
+</ul>-->
+
+				
+				<section class="timeline">
+  <ul>
+    <li>
+      <div>
+        <time>Jan 2018 - June 2018</time>Website 1.0 Development
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>June 2018</time> Introduce CFC Coin for Private Sale
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>July 2018 - Sept 2018</time> Website 2.0 – Decentralized Sport Betting
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Sept 2018 - Dec 2018</time> Website 3.0 – Comic Card Game
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Sept 2018 - Dec 2018</time> First Public ICO
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Sept  2018 - Dec 2018</time> Mobile App for Card Trading and Betting
+      </div>
+    </li>
+    <li>
+      <div>
+        <time>Sept  2018 - Dec 2018</time> Introduce Sport Information Platform
+      </div>
+    </li>
+   
+  </ul>
+</section>
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div style="background-color:#2a2d3c;">
+        <div class="row" >
+
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Revenue Model & Projection</u></label>
+           
+				
+			 <div class="">
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Cards Trading Revenue</label>
+            </div>
+        </div>
+        
+        
+        
+				  <div class="col-md-7" >
+	
+				
+				<p>Card & Team Selling/Trading Transaction Fees
+We generate revenue for each CF card sold.  At 0.1 ETH (1 ETH=USD$500) per piece, 20000 cards would equal to USD $1 million initial card sales.  
+ <BR><BR>
+ 
+In addition, we put up Sport Team for sales at average of 5 ETH  (1 ETH=USD$500) each.   Team owners earn a % of royalties from wager placed on their respective teams.  There 200+ major sports teams, which will produce 1000ETH (1 ETH=USD$500), or USD$500,000 in sum. 
+  <BR><BR>
+
+After booking USD$2.5 million in our initial sale,  transaction fees is the next pivotal growth driver.  We collect 6% transaction fee for each card traded.  We project a net earning of USD$16.5 Millions annually based on our competitors (CryptoKitties, CryptoCelebrites) business economics, before taking account into Sports category.</p>
+ 
+ <BR><BR>
+ 
+ </div>
+
+
+<div class="col-md-5">
+					
+
+<ul class="bar-graph" style="margin-top:-100px;">
+  <li></li>
+  <li class="bar primary" style="height: 70%;" title="$325 Billion">
+    <div class="percent">6.5M</div>
+    
+  </li>
+  <li class="bar secondary" style="height: 100%;" title="$493 Billion">
+    <div class="percent">10M</div>
+    
+  </li>
+  <li class="bar success" style="height: 75%;" title="$696 Billion">
+    <div class="percent">6.5M</div>
+   
+  </li>
+ 
+  </ul>
+  <ul class="fd">
+    <li class="bar-graph-label">.</li>
+
+    <li class="bar-graph-label">CryptoKitties</li>
+    <li class="bar-graph-label">CryptoCeleb</li>
+    <li class="bar-graph-label">SportCard</li>
+   
+  
+</ul>
+</div>
+
+				
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	
+<div style="background-color:#2a2d3c;">
+        <div class="row" >
+
+
+<div class="">
+            <div class="row">
+            <div class="col-xs-12">
+                
+                <label class="white-color label-title-trading" style="font-size: 40px;">Betting Transaction Fee Revenue</label>
+            </div>
+        </div>
+        
+        
+        
+            <div class="col-xs-12">
+           
+				
+				<p>CryptoFantasy charge a 3% escrow fee for each bet placed.  The fees go toward securing bets on blockchain safely. We project a minimum of 1,000 bets per game with 200 games+ per season in each sport.  
+ <BR><BR>
+At average size of USD$100 bet, the expected sum of total betting transaction fee arrive at USD$2.4 millions per year.  As our platform gains foothold, popularity grows, number of bets per game is expected to reach well over 10000.
+ <BR><BR>
+(Chart of NBA, NFL, MLB, Soccer, Chinese Soccert.show # of games per season and show Total # of Games per year with everything combined)
+</p>
+ 
+
+				
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+	
+	<div style="background-color:#2a2d3c;">
+        <div class="row" >
+
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>CF Tokenomics</u></label>
+           
+                
+           
+				
+				<p>CFToken is the cornerstone of CryptoFantasy ecosystem. All fees collected from CF cards sales, trades and sports wagering are reduced by 50% when paid in CFTokens.  As our system matures, CryptoFantasy will no longer accept ETH as method of payment, all transactions shall be made in CFToken exclusively.
+ <BR><BR>
+CFToken  is also the designated payment form for dividend distribution to our token holders. For further details, check out "Token Dividend" section below.<br>
+  <BR><BR>
+
+<b>Channels to purchase CFtoken by players</b>
+
+</p>
+ <div class="col-md-4 bord"><p>Purchase on CF official site using ETH</p></div>
+ <div class="col-md-4 bord"><p>Purchase on Listed Exchanges</p></div>
+ <div class="col-md-4 bord"><p>Earn incomes through trading, royalty and wagering </p></div>
+
+				
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+
+<div style="background-color:#2a2d3c;padding-left:30px;padding-right:30px;">
+        <div class="row" >
+
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Token Offering</u></label>
+           
+                
+
+ 
+
+				
+					
+				</div>
+				
+				
+           
+				<div class="col-xs-4"><p>Total token issued: 3,000,000,000<BR>
+	Soft cap: 2,000,000 USD<BR>
+	Hard cap: 15,000,000 USD<BR>
+				</div>
+
+	<div class="col-xs-4">
+	<p>Token for sale : 40%<BR>
+	Partnership & advisor holding : 7%<BR>
+	Team holding: 15% <BR>
+				</div>
+
+	<div class="col-xs-4">
+	
+	<p>Bounty holding: 2% <BR>
+	Game develop and marketing holding: 16%<BR>
+	Future fund ( 2019 Sept): 20%<BR>
+			</div>
+			
+			
+			</div>
+			
+			
+                    </div>
+	
+	
+	
+	
+<div style="background-color:#2a2d3c;padding-left:30px;padding-right:30px;">
+        <div class="row" >
+
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Token Dividend</u></label>
+           
+                
+
+
+				<p>CFtoken holders are entitled to dividends generated from 30% of all 
+transaction fees that incurred.  Dividends are distributed automatically into CFToken holder's wallet on weekly basis. 
+ <BR><BR>
+The amount of dividends received is tied to the percentage of total CFToken circulation held.
+
+
+</p>
+ 
+
+				
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+	
+	
+	
+	
+<div style="background-color:#2a2d3c;padding-left:30px;padding-right:30px;">
+        <div class="row" >
+
+            <div class="col-xs-12">
+               <label class="white-color label-title-trading"><u>Team Members</u></label>
+           
+                
+                
+            </div>
+			<div class="row">
+				<div class="container">
+				
+				
+ <div class="col-md-12 team"><div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>(Founder & CEO)</p></div></div>
+ 
+  <div class="col-md-12 team"><div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>Erwin yu <br>CTO
+</p></div></div>
+ 
+ <div class="col-md-12 team"> <div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>Joseph Lee<br>Lead Engineer</p></div></div>
+ 
+ <div class="col-md-12 team"> <div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>Simon Chen<br> Founder & Aritecture
+</p></div></div>
+ 
+  <div class="col-md-12 team"><div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>Alexander Kuznetsov <br>igor CFO
+</p></div></div>
+ 
+  <div class="col-md-12 team"><div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p>Denise Eckmen <br>Lead Designer
+</p></div></div>
+
+ <div class="col-md-12 team"><div class="col-md-3"><img src="images/default.png" class="athlete-thumb"></div><div class="col-md-3"><p><br>ICO Advisor
+</p></div></div>
+
+				
+					
+				</div>
+			
+			</div>
+			
+			
+                    </div>
+    </div>
+    
+<div class="div-footer">
+    <div class="container">
+        <label class="footer-copyright-label">
+            &copy; 2018 Crypto Fantasy. All rights reserved.
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </label>
+        
+        
+        
+    </div>
+</div>
+<script src="http://138.68.73.6:5007/./js/frontend/home.js" ></script>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="http://138.68.73.6:5007/js/app.js"></script>
+<script>
+    var isMobile = false; //initiate as false
+    $(document).ready(function(){
+        doOnResizeAppBody();
+        $(window).resize(function(){
+            doOnResizeAppBody();
+        });
+
+        $(window).scroll(function(){
+            var scroll = $(window).scrollTop();
+            var _wH = $(window).height();
+            if (scroll > _wH) {
+                $('.navbar-laravel').addClass('black-background');
+            } else {
+                $('.navbar-laravel').removeClass('black-background');
+            }
+        });
+
+        if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+                || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4))) {
+            isMobile = true;
+        }
+
+        $.get('/api/v1/public/marketplacemenu', function(menu_data){
+            menuHTML = '';
+            var wH = $(window)[0].innerHeight-100;
+            if ( menu_data.length>5 ) {
+                for(i=0;i<5;i++) {
+                    var type = menu_data[i];
+                    menuHTML += '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + type.type_name + ' <span class="caret"></span></a>';
+                    team_data = type.team_data;
+                    if (team_data.length >= 1) {
+                        if ( isMobile && team_data.length>=10 )
+                            menuHTML += '<ul class="dropdown-menu"  style="overflow-y:scroll;height:'+wH+'px">';
+                        else
+                            menuHTML += '<ul class="dropdown-menu" >';
+                        for (j in team_data) {
+                            team = team_data[j];
+                            menuHTML += '<li><a href="/marketplace/'+team._id+'" id="' + team._id + '" >' + team.team_name + '</a></li>';
+                        }
+                        menuHTML += '</ul>';
+                    }
+                    menuHTML += '</li>';
+                }
+                menuHTML += '<li class="dropdown">\
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>\
+                            <ul class="dropdown-menu">';
+                for(i=5;i<menu_data.length;i++) {
+                    var type = menu_data[i];
+                    menuHTML += '<li class="dropdown dropdown-submenu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">' + type.type_name + '</a>';
+                    team_data = type.team_data;
+                    if (team_data.length >= 1) {
+                        if ( isMobile && team_data.length>=10 )
+                            menuHTML += '<ul class="dropdown-menu"  style="overflow-y:scroll;height:'+wH+'px">';
+                        else
+                            menuHTML += '<ul class="dropdown-menu" >';
+                        for (j in team_data) {
+                            team = team_data[j];
+                            menuHTML += '<li><a href="/marketplace/'+team._id+'" id="' + team._id + '" >' + team.team_name + '</a></li>';
+                        }
+                        menuHTML += '</ul>';
+                    }
+                    menuHTML += '</li>';
+                }
+                menuHTML += '</ul></li>';
+            }
+            else {
+                for( i in menu_data ) {
+                    var type = menu_data[i];
+                    menuHTML += '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">' + type.type_name + ' <span class="caret"></span></a>';
+                    team_data = type.team_data;
+                    if (team_data.length >= 1) {
+                        if ( isMobile && team_data.length>=10 )
+                            menuHTML += '<ul class="dropdown-menu"  style="overflow-y:scroll;height:'+wH+'px">';
+                        else
+                            menuHTML += '<ul class="dropdown-menu" >';
+                        for (j in team_data) {
+                            team = team_data[j];
+                            menuHTML += '<li><a href="/marketplace/'+team._id+'" id="' + team._id + '" >' + team.team_name + '</a></li>';
+                        }
+                        menuHTML += '</ul>';
+                    }
+
+                    menuHTML += '</li>';
+                }
+            }
+
+            $('#dropdown_marketplace_menu').html(menuHTML);
+
+
+            (function($){
+                $(document).ready(function(){
+                    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        $(this).parent().siblings().removeClass('open');
+                        $(this).parent().toggleClass('open');
+                    });
+                });
+            })(jQuery);
+
+        });
+
+        $('body').css('height', ($(window)[0].innerHeight)+'px');
+
+
+    });
+
+    doOnResizeAppBody = function() {
+//        $('.app-body').css('width', $(window)[0].innerWidth);
+//        $('.app-body').css('height', $(window)[0].innerHeight);
+    }
+</script>
+<script  src="js/index.js"></script>
+</body>
+</html>
